@@ -8,8 +8,12 @@
     <body>
         <div class="mainDiv">
             <button id="btnDraw" type="button">draw tree</button>
+            
             <button id="btnSnowflake" type="button">draw snowflake</button>
             <input id="snowflakeSlider" type="range" min="-1" max="5" value="1" />
+
+            <button id="btnBarnsleyFern" type="button">draw Barnsley fern</button>
+            <input id="barnsleySlider" type="range" min="2000" max="50000" value="5000" />
             <div id="canvasDiv" class="canvasDiv2">
                 <canvas id="myCanvas" width="800" height="1000"></canvas>
             </div>
@@ -28,6 +32,46 @@
                 // ctx.canvas.width = canvasDiv.width;
                 // ctx.canvas.heigth = canvasDiv.heigth;
             }
+
+            const drawBarnsleyFern = (limit) => {
+                let width = myCanvas.width, height = myCanvas.height;
+                let x = 0.,
+                    y = 0.,
+                    xw = 0.,
+                    yw = 0.,
+                    r;
+
+                const randgp = (max) => Math.floor(Math.random() * max);
+                
+                initCanvas();
+                for (let i = 0; i < limit; i++) {
+                    r = randgp(100);
+                    if (r <= 1) {
+                        xw = 0;
+                        yw = 0.16*y;
+                    } else if (r <= 8) {
+                        xw = 0.2 * x - 0.26 * y;
+                        yw = 0.23 * x + 0.22 * y + 1.6;
+                    } else if (r <= 15) {
+                        xw = -0.15 * x + 0.28 * y;
+                        yw = 0.26 * x + 0.24 * y + 0.44;
+                    } else {
+                        xw = 0.85 * x + 0.04 * y;
+                        yw = -0.04 * x + 0.85 * y + 1.6;
+                    }
+                    x = xw;
+                    y = yw;
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(x * 50 + 260, -y * 50 + 540, 1, 1);
+                }
+            };
+
+            const barnsleySlider = document.getElementById("barnsleySlider");
+            barnsleySlider.oninput = (ev, ui) => {
+                console.log("barnsleySlider", barnsleySlider.value);
+                drawBarnsleyFern(barnsleySlider.value);
+            };
+
 
             const drawSnowflake = async () => {
                 initCanvas();
@@ -151,6 +195,12 @@
                 console.log("Snowflake to appear");
                 drawSnowflake();
             });
+
+            const btnFern = document.getElementById("btnBarnsleyFern");
+            btnFern.addEventListener("click", (event) => {
+                console.log("btnBarnsleyFern clicked");
+                drawBarnsleyFern(document.getElementById("barnsleySlider").value);
+            })
         </script>
     </body>
 </html>
