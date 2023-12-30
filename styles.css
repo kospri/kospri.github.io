@@ -1,4 +1,8 @@
 
+.body {
+    font-family: sans-serif;
+}
+
 .mainDiv {
     text-align: center;
 }
@@ -8,4 +12,32 @@
     height: 800px;
     margin: 0 auto;
     background:  #f2f2f2;
+}
+
+.canvas-wrapper {
+    margin: 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.tree-size-label {
+    color: rgba(45,112,61,0.8);
+    font-size: 2rem;
+}
+
+.separate-small-top {
+    margin-top: 10px;
 }
