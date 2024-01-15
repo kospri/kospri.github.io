@@ -33,13 +33,17 @@
             </div>
 
             <div class="canvas-wrapper">
+                <hr class="green-separator" />
+            </div>
+
+            <div class="canvas-wrapper">
                 <div class="row separate-small-top">
                     <h2>Снежинка Коха</h2>
                 </div>
                 <div class="row">
                     <canvas id="fractal-koch-snowflake" width="800" height="650"></canvas>
                 </div>
-                <div classs="row">
+                <div class="row">
                     <output id="snowflake-slider-val" class="snowflake-label">1</output>
                 </div>
                 <div class="row separate-small-top">
@@ -50,12 +54,29 @@
                 </div>
             </div>
 
+            <div class="canvas-wrapper">
+                <hr class="green-separator" />
+            </div>
 
-            <button id="btnBarnsleyFern" type="button">draw Barnsley fern</button>
-            <input id="barnsleySlider" type="range" min="2000" max="50000" value="5000" />
-            
-            <div id="canvasDiv" class="canvasDiv2">
-                <canvas id="myCanvas" width="800" height="1000"></canvas>
+            <div class="canvas-wrapper">
+                <div class="row separate-small-top">
+                    <h2>Папоротник Барнсли</h2>
+                </div>
+                <div class="row">
+                    <canvas id="fractal-barnsley-fern" width="600" height="800"></canvas>
+                </div>
+                <div class="row">
+                    <output id="fractal-barnsley-fern-val" class="snowflake-label">5000</output>
+                </div>
+                <div class="row separate-small-top">
+                    <input id="fractal-barnsley-fern-slider" type="range" min="2000" max="50000" value="5000" />
+                </div>
+                <div class="row">
+                    <label for="fractal-barnsley-fern-slider">Повторения</label>
+                </div>
+                <div class="row separate-small-top separate-small-bottom">
+                    <div>&nbsp;</div>
+                </div>
             </div>
         </div>
         
@@ -218,21 +239,12 @@
 
 
             //
-            //
-            var myCanvas = document.getElementById("myCanvas");
-            var ctx = myCanvas.getContext("2d");
+            // Barnsley fern
+            // 1) function:
+            function drawBarnsleyFern(canvasObj, iterationCount) {
+                let context = cleanCanvas(canvasObj);
 
-            const initCanvas = () => {
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-                ctx.clearRect(-myCanvas.width, -myCanvas.height, myCanvas.width, myCanvas.height);
-                ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-                // var canvasDiv = document.getElementById("canvasDiv");
-                // ctx.canvas.width = canvasDiv.width;
-                // ctx.canvas.heigth = canvasDiv.heigth;
-            }
-
-            const drawBarnsleyFern = (limit) => {
-                let width = myCanvas.width, height = myCanvas.height;
+                let width = canvasObj.width, height = canvasObj.height;
                 let x = 0.,
                     y = 0.,
                     xw = 0.,
@@ -240,9 +252,8 @@
                     r;
 
                 const randgp = (max) => Math.floor(Math.random() * max);
-                
-                initCanvas();
-                for (let i = 0; i < limit; i++) {
+
+                for (let i = 0; i < iterationCount; i++) {
                     r = randgp(100);
                     if (r <= 1) {
                         xw = 0;
@@ -259,22 +270,21 @@
                     }
                     x = xw;
                     y = yw;
-                    ctx.fillStyle = "green";
-                    ctx.fillRect(x * 50 + 260, -y * 50 + 540, 1, 1);
+                    context.fillStyle = "green";
+                    context.fillRect(x * 50 + 260, -y * 50 + 540, 1, 1);
                 }
-            };
+            }
 
-            const barnsleySlider = document.getElementById("barnsleySlider");
-            barnsleySlider.oninput = (ev, ui) => {
-                console.log("barnsleySlider", barnsleySlider.value);
-                drawBarnsleyFern(barnsleySlider.value);
-            };
+            // 2) place on the page:
+            var barnsleyFernCanvas = document.getElementById("fractal-barnsley-fern");
+            var barnsleyFernSlider = document.getElementById("fractal-barnsley-fern-slider");
+            drawBarnsleyFern(barnsleyFernCanvas, barnsleyFernSlider.value);
 
-            const btnFern = document.getElementById("btnBarnsleyFern");
-            btnFern.addEventListener("click", (event) => {
-                console.log("btnBarnsleyFern clicked");
-                drawBarnsleyFern(document.getElementById("barnsleySlider").value);
-            })
+            // 3) update slider value:
+            barnsleyFernSlider.oninput = (ev, ui) => {
+                document.getElementById("fractal-barnsley-fern-val").value = barnsleyFernSlider.value;
+                drawBarnsleyFern(barnsleyFernCanvas, barnsleyFernSlider.value);
+            };
         </script>
     </body>
 </html>
