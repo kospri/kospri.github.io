@@ -16,6 +16,10 @@
     * [Wiki](https://en.wikipedia.org/wiki/Barnsley_fern)
     * [Rosettacode.org](https://rosettacode.org/wiki/Barnsley_fern#JavaScript)
 
+4. Pythagoras tree
+    * [Wiki](https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal))
+    * [Rosettacode.org](https://rosettacode.org/wiki/Pythagoras_tree#JavaScript)
+
 ### HTML, CSS and JS links
 
 - [RGBA Color picker](https://rgbacolorpicker.com/)
