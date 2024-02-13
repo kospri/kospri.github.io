@@ -90,8 +90,11 @@
                 <div class="row">
                     <canvas id="fractal-pythagoras-tree" width="640" height="640"></canvas>
                 </div>
+                <div class="row">
+                    <output id="fractal-pythagoras-tree-val" class="snowflake-label">1</output>
+                </div>
                 <div class="row separate-small-top">
-                    <input id="fractal-pythagoras-tree-slider" type="range" min="2" max="22" value="2" />
+                    <input id="fractal-pythagoras-tree-slider" type="range" min="1" max="14" value="1" />
                 </div>
             </div>
         </div>
@@ -327,8 +330,8 @@
                     + Math.round(b * 255) + ")";
             }
 
-            function drawPythagorasTree(context, x1, y1, x2, y2, depth) {
-                var depthLimit = 12;
+            function drawPythagorasTree(context, x1, y1, x2, y2, depthLimit, depth) {
+                // var depthLimit = 12;
                 var hue = 0.15;
 
                 if (depth == depthLimit)
@@ -367,16 +370,21 @@
                 context.strokeStyle = "lightGray";
                 context.stroke();
 
-                drawPythagorasTree(context, x5, y5, x3, y3, depth + 1);
-                drawPythagorasTree(context, x5, y5, x3, y3, depth + 1);
+                drawPythagorasTree(context, x5, y5, x3, y3, depthLimit, depth + 1);
+                drawPythagorasTree(context, x5, y5, x3, y3, depthLimit, depth + 1);
             }
 
             // 2) place on the page:
             var canvasPyTree = cleanCanvas(document.getElementById("fractal-pythagoras-tree"));
-            // var barnsleyFernSlider = document.getElementById("fractal-pythagoras-tree-slider");
-            drawPythagorasTree(canvasPyTree, 275, 500, 375, 500, 0);
+            var pyTreeSlider = document.getElementById("fractal-pythagoras-tree-slider");
+            drawPythagorasTree(canvasPyTree, 275, 500, 375, 500, 1, 0);
 
-
+            // 3) update slider value:
+            pyTreeSlider.oninput = (ev, ui) => {
+                document.getElementById("fractal-pythagoras-tree-val").value = pyTreeSlider.value;
+                let canvas = cleanCanvas(document.getElementById("fractal-pythagoras-tree"));
+                drawPythagorasTree(canvas, 275, 500, 375, 500, pyTreeSlider.value, 0);
+            };
         </script>
     </body>
 </html>
