@@ -365,12 +365,13 @@
                 context.lineTo(x5, y5);
                 context.closePath();
 
-                context.fillStyle = HSVtoRGB(hue + depth * 0.035, 1, 1);
+                var hsv = (depth == 0) ? (hue + 0.4 * 0.035) : (hue + depth * 0.035);
+                context.fillStyle = HSVtoRGB(hsv, 1, 1);
                 context.fill();
                 context.strokeStyle = "lightGray";
                 context.stroke();
 
-                drawPythagorasTree(context, x5, y5, x3, y3, depthLimit, depth + 1);
+                drawPythagorasTree(context, x4, y4, x5, y5, depthLimit, depth + 1);
                 drawPythagorasTree(context, x5, y5, x3, y3, depthLimit, depth + 1);
             }
 
