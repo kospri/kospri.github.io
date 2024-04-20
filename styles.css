@@ -24,6 +24,28 @@
     margin: 36px;
 }
 
+.block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.fractal-block {
+    flex: 2;
+}
+
+.info-block {
+    flex: 1;
+    text-align: left;
+    font-size: 1.6em;
+}
+
+i.smaller-info-font {
+    font-size: 0.8em;
+}
+
 .row {
     display: flex;
     flex-direction: row;

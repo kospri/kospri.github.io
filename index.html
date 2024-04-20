@@ -8,27 +8,46 @@
     <body class="body">
         <div class="mainDiv">
             <div class="canvas-wrapper">
+                <hr class="green-separator" />
+            </div>
+
+            <div class="canvas-wrapper">
                 <div class="row separate-small-top">
                     <h2>Фрактальное дерево</h2>
                 </div>
-                <div class="row">
-                    <canvas id="fractal-tree" width="800" height="650"></canvas>
-                </div>
-                <div class="row">
-                    <output id="fractal-tree-slider-val" class="tree-size-label">160</output>
-                </div>
-                <div class="row separate-small-top">                    
-                    <input id="fractal-tree-slider" 
-                           style="direction: rtl;"
-                           type="range"
-                           min="10"
-                           max="160"
-                           value="160"
-                           step="30"
-                    />
-                </div>
-                <div class="row ">
-                    <label for="fractal-tree-slider">Ширина ветки</label>
+                <div class="block">
+                    <div class="fractal-block">
+                        <div class="row">
+                            <canvas id="fractal-tree" width="800" height="650"></canvas>
+                        </div>
+                        <div class="row">
+                            <output id="fractal-tree-slider-val" class="tree-size-label">160</output>
+                        </div>
+                        <div class="row separate-small-top">                    
+                            <input id="fractal-tree-slider" 
+                                style="direction: rtl;"
+                                type="range"
+                                min="10"
+                                max="160"
+                                value="160"
+                                step="30"
+                            />
+                        </div>
+                        <div class="row ">
+                            <label for="fractal-tree-slider">Ширина ветки</label>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <p>
+                            <b>Шаги построения фрактального дерева.</b><br/>
+                            &nbsp;<br/>
+                            Первый шаг - отрезок. Этот отрезок - это ствол дерева. <br/>
+                            От конца ствола отводятся два новых отрезка под углом. Эти отрезки будут первыми ветвями. <br/>
+                            Далее к каждому концу ветвей снова добавляются по две ветви под углом. С каждым новым этапом ветви делаются короче.<br/>
+                            &nbsp;<br/>
+                            Продолжая в том же духе, с каждым новым уровнем ветвления дерево становится все более сложным и похожим на настоящее дерево.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -40,17 +59,35 @@
                 <div class="row separate-small-top">
                     <h2>Снежинка Коха</h2>
                 </div>
-                <div class="row">
-                    <canvas id="fractal-koch-snowflake" width="800" height="650"></canvas>
-                </div>
-                <div class="row">
-                    <output id="snowflake-slider-val" class="snowflake-label">1</output>
-                </div>
-                <div class="row separate-small-top">
-                    <input id="snowflake-slider" type="range" min="-1" max="5" value="1" />
-                </div>
-                <div class="row">
-                    <label for="snowflake-slider">Лимит</label>
+                <div class="block">
+                    <div class="fractal-block">
+                        <div class="row">
+                            <canvas id="fractal-koch-snowflake" width="800" height="650"></canvas>
+                        </div>
+                        <div class="row">
+                            <output id="snowflake-slider-val" class="snowflake-label">1</output>
+                        </div>
+                        <div class="row separate-small-top">
+                            <input id="snowflake-slider" type="range" min="-1" max="5" value="1" />
+                        </div>
+                        <div class="row">
+                            <label for="snowflake-slider">Лимит</label>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <p>
+                        <b>Шаги построения кривой Коха.</b><br/>
+                        &nbsp;<br/>
+                        Первый шаг — равносторонний треугольник.<br/>
+                        Потом каждая сторона делится на три равные части, центральная из которых достраивается до равностороннего треугольника и затем основание убирается.<br/>
+                        Далее к каждой стороне применяется такая же операция.<br/>
+                        Продолжая в том же духе, можно получать всё новые и новые линии (все они будут ломаными).
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>
+                        Кривая Коха также может начинать своё построение не из равностороннего треугольника, а просто из отрезка и тогда перед всей операцией добавляется еще один дополнительный шаг - создание треугольника.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -62,20 +99,45 @@
                 <div class="row separate-small-top">
                     <h2>Папоротник Барнсли</h2>
                 </div>
-                <div class="row">
-                    <canvas id="fractal-barnsley-fern" width="600" height="800"></canvas>
-                </div>
-                <div class="row">
-                    <output id="fractal-barnsley-fern-val" class="snowflake-label">5000</output>
-                </div>
-                <div class="row separate-small-top">
-                    <input id="fractal-barnsley-fern-slider" type="range" min="2000" max="50000" value="5000" />
-                </div>
-                <div class="row">
-                    <label for="fractal-barnsley-fern-slider">Повторения</label>
-                </div>
-                <div class="row separate-small-top separate-small-bottom">
-                    <div>&nbsp;</div>
+                <div class="block">
+                    <div class="fractal-block">
+                        <div class="row">
+                            <canvas id="fractal-barnsley-fern" width="600" height="800"></canvas>
+                        </div>
+                        <div class="row">
+                            <output id="fractal-barnsley-fern-val" class="snowflake-label">5000</output>
+                        </div>
+                        <div class="row separate-small-top">
+                            <input id="fractal-barnsley-fern-slider" type="range" min="2000" max="50000" value="5000" />
+                        </div>
+                        <div class="row">
+                            <label for="fractal-barnsley-fern-slider">Повторения</label>
+                        </div>
+                        <div class="row separate-small-top separate-small-bottom">
+                            <div>&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <p>
+                            Папоротник Бансли является одним из основных примеров "самоподобных" множеств, т.е. представляет собой математически генерируемый "шаблон", воспроизводимый при любом увеличении или уменьшении количества итераций<br/>
+                            &nbsp;<br/>
+                            <i class="smaller-info-font">
+                            Первая точка находится в начале координат (х0 = 0, у0 = 0)<br/>
+                            затем новые точки итеративно вычисляются путем случайного применения одного из следующих четырех преобразований координат:<br/>
+                            &nbsp;<br/>
+                            (1) xn + 1 = 0; yn + 1 = 0.16 yn.<br/>
+                            <i class="smaller-info-font">Данное преобразование выбирается в 1% случаев и указывает на точку у основания "стебля". Эта часть рисунка в результате итерационных преобразований завершается первой.</i><br/>
+                            &nbsp;<br/>
+                            (2) xn + 1 = 0.85 xn + 0.04 yn; yn + 1 = −0.04 xn + 0.85 yn + 1.6.<br/>
+                            <i class="smaller-info-font">Преобразование (2) используется в 85% случаев и указывает на любую точку листовки попадающую в красный треугольник</i><br/>
+                            &nbsp;<br/>
+                            (3) xn + 1 = 0.2 xn − 0.26 yn; yn + 1 = 0.23 xn + 0.22 yn + 1.6.<br/>
+                            <i class="smaller-info-font">Выбирается в 7% случаев - попадания точки в синий треугольник и симметричного ему относительно главного стебля треугольника.</i><br/>
+                            &nbsp;<br/>
+                            (4)xn + 1 = −0.15 xn + 0.28 yn; yn + 1 = 0.26 xn + 0.24 yn + 0.44.<br/>
+                            <i class="smaller-info-font">В оставшихся 7% случаев используется преобразование (4) - для симметричных преобразованию (3) относительно стеблей 2-го порядка позиций.</i><br/>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -87,14 +149,30 @@
                 <div class="row separate-small-top">
                     <h2>Дерево Пифагора</h2>
                 </div>
-                <div class="row">
-                    <canvas id="fractal-pythagoras-tree" width="640" height="640"></canvas>
-                </div>
-                <div class="row">
-                    <output id="fractal-pythagoras-tree-val" class="snowflake-label">1</output>
-                </div>
-                <div class="row separate-small-top">
-                    <input id="fractal-pythagoras-tree-slider" type="range" min="1" max="14" value="1" />
+                <div class="block">
+                    <div class="fractal-block">
+
+                        <div class="row">
+                            <canvas id="fractal-pythagoras-tree" width="640" height="640"></canvas>
+                        </div>
+                        <div class="row">
+                            <output id="fractal-pythagoras-tree-val" class="snowflake-label">1</output>
+                        </div>
+                        <div class="row separate-small-top">
+                            <input id="fractal-pythagoras-tree-slider" type="range" min="1" max="14" value="1" />
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <p>
+                            <b>Шаги построения дерева Пифагора.</b><br/>
+                            &nbsp;<br/>
+                            Первый шаг - квадрат.<br/>
+                            Этот квадрат - это основание всего дерева. На одной из сторон квадрата рисуется прямоугольный треугольник так, чтобы гипотенуза была равна стороне квадрата.<br/>
+                            На каждом катете треугольника рисуются новые квадраты. Эти квадраты будут основаниями для следующих ветвей дерева. <br/>
+                            &nbsp;<br/>
+                            Продолжая в том же духе каждый последующий шаг создает новые "ветви" дерева, и если продолжать его бесконечно, получится фрактал с бесконечным количеством ветвей.<br/>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
