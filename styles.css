@@ -3,6 +3,10 @@
     font-family: sans-serif;
 }
 
+h1 {
+    text-transform: uppercase;
+}
+
 .mainDiv {
     text-align: center;
     display: flex;
@@ -77,4 +81,10 @@ i.smaller-info-font {
 hr.green-separator {
     border: 2px solid rgba(45,112,61,0.8);
     border-radius: 5px;
+}
+
+.signature-bottom {
+    text-align: right;
+    margin-right: 35px;
+    padding-bottom: 20px;
 }
