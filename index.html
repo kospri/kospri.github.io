@@ -68,7 +68,7 @@
                             <canvas id="fractal-koch-snowflake" width="800" height="650"></canvas>
                         </div>
                         <div class="row">
-                            <output id="snowflake-slider-val" class="snowflake-label">1</output>
+                            <output id="snowflake-slider-val" class="snowflake-label">2</output>
                         </div>
                         <div class="row separate-small-top">
                             <input id="snowflake-slider" type="range" min="-1" max="5" value="1" />
@@ -348,7 +348,7 @@
             drawKochSnowflake(snowflakeCanvas, "snowflake-slider");
             // 3) update slider value:
             document.getElementById("snowflake-slider").addEventListener("input", (event) => {
-                document.getElementById("snowflake-slider-val").value = document.getElementById("snowflake-slider").value;
+                document.getElementById("snowflake-slider-val").value = +document.getElementById("snowflake-slider").value + 1;
             });
 
 
