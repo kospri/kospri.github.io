@@ -103,44 +103,50 @@
                     <h2>Папоротник Барнсли</h2>
                 </div>
                 <div class="block">
-                    <div class="fractal-block">
-                        <div class="row">
-                            <canvas id="fractal-barnsley-fern" width="600" height="800"></canvas>
-                        </div>
-                        <div class="row">
-                            <output id="fractal-barnsley-fern-val" class="snowflake-label">5000</output>
-                        </div>
-                        <div class="row separate-small-top">
-                            <input id="fractal-barnsley-fern-slider" type="range" min="2000" max="50000" value="5000" />
-                        </div>
-                        <div class="row">
-                            <label for="fractal-barnsley-fern-slider">Повторения</label>
-                        </div>
-                        <div class="row separate-small-top separate-small-bottom">
-                            <div>&nbsp;</div>
-                        </div>
+                    <div class="fractal-block2">
+                        <img src="barnsley-fern-calc.png" />
                     </div>
                     <div class="info-block">
                         <p>
                             Папоротник Бансли является одним из основных примеров "самоподобных" множеств, т.е. представляет собой математически генерируемый "шаблон", воспроизводимый при любом увеличении или уменьшении количества операций<br/>
                             &nbsp;<br/>
+                            Папоротник Барнсли теоретически может быть построен вручную. Т.е. Вы берете ручку, лист в бумаги в мелкую клетку и следуете матрице коэффициентов. Однако, количество необходимый итераций исчисляется десятками тысяч, что делает использование компьютера, мягко говоря, желательным.<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
                             <i class="smaller-info-font">
                                 Первая точка находится в начале координат (х0 = 0, у0 = 0)<br/>
                                 затем новые точки вычисляются путем многократного случайного применения одного из следующих четырех преобразований координат:<br/>
                                 &nbsp;<br/>
-                                (1) xn + 1 = 0; yn + 1 = 0.16 yn.<br/>
+                                (1) x<sub>n+1</sub> = 0; y<sub>n+1</sub> = 0.16&times;y<sub>n</sub>.<br/>
                                 <i class="smaller-info-font">Данное преобразование выбирается в 1% случаев и указывает на точку у основания "стебля". Эта часть рисунка в результате многократных преобразований завершается первой.</i><br/>
                                 &nbsp;<br/>
-                                (2) xn + 1 = 0.85 xn + 0.04 yn; yn + 1 = −0.04 xn + 0.85 yn + 1.6.<br/>
+                                (2) x<sub>n+1</sub> = 0.85&times;x<sub>n</sub> + 0.04&times;y<sub>n</sub>; y<sub>n+1</sub> = −0.04&times;x<sub>n</sub> + 0.85&times;y<sub>n</sub> + 1.6.<br/>
                                 <i class="smaller-info-font">Преобразование (2) используется в 85% случаев и указывает на любую точку листовки попадающую в красный треугольник</i><br/>
                                 &nbsp;<br/>
-                                (3) xn + 1 = 0.2 xn − 0.26 yn; yn + 1 = 0.23 xn + 0.22 yn + 1.6.<br/>
+                                (3) x<sub>n+1</sub> = 0.2&times;x<sub>n</sub> − 0.26&times;y<sub>n</sub> ; y<sub>n+1</sub> = 0.23&times;x<sub>n</sub> + 0.22&times;y<sub>n</sub>  + 1.6.<br/>
                                 <i class="smaller-info-font">Выбирается в 7% случаев - попадания точки в синий треугольник и симметричного ему относительно главного стебля треугольника.</i><br/>
                                 &nbsp;<br/>
-                                (4)xn + 1 = −0.15 xn + 0.28 yn; yn + 1 = 0.26 xn + 0.24 yn + 0.44.<br/>
+                                (4)x<sub>n+1</sub> = −0.15&times;x<sub>n</sub> + 0.28&times;y<sub>n</sub>; y<sub>n+1</sub> = 0.26&times;x<sub>n</sub> + 0.24&times;y<sub>n</sub> + 0.44.<br/>
                                 <i class="smaller-info-font">В оставшихся 7% случаев используется преобразование (4) - для симметричных преобразованию (3) относительно стеблей 2-го порядка позиций.</i><br/>
                             </i>
                         </p>
+                    </div>
+                </div>
+                <div class="fractal-block">
+                    <div class="row">
+                        <canvas id="fractal-barnsley-fern" width="600" height="800"></canvas>
+                    </div>
+                    <div class="row">
+                        <output id="fractal-barnsley-fern-val" class="snowflake-label">5000</output>
+                    </div>
+                    <div class="row separate-small-top">
+                        <input id="fractal-barnsley-fern-slider" type="range" min="2000" max="50000" value="5000" />
+                    </div>
+                    <div class="row">
+                        <label for="fractal-barnsley-fern-slider">Повторения</label>
+                    </div>
+                    <div class="row separate-small-top separate-small-bottom">
+                        <div>&nbsp;</div>
                     </div>
                 </div>
             </div>
